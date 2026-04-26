@@ -3,64 +3,370 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Five Senses Experience</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <title>Happy Birthday Bestie! 🎉</title>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            overflow-x: hidden;
+            background: linear-gradient(-45deg, #ff6b6b, #feca57, #48dbfb, #ff9ff3);
+            background-size: 400% 400%;
+            animation: gradientShift 15s ease infinite;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        @keyframes gradientShift {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        /* Floating Particles */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* Main Container */
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 2rem;
+            position: relative;
+            z-index: 10;
+        }
+
+        /* Birthday Title */
+        .birthday-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(3rem, 10vw, 8rem);
+            font-weight: 700;
+            color: white;
+            text-shadow: 0 0 30px rgba(255,255,255,0.8);
+            margin-bottom: 1rem;
+            animation: bounce 2s infinite;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .birthday-title:hover {
+            transform: scale(1.1);
+            text-shadow: 0 0 50px rgba(255,255,255,1);
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+            40% { transform: translateY(-20px); }
+            60% { transform: translateY(-10px); }
+        }
+
+        /* Bestie Name */
+        .bestie-name {
+            font-size: clamp(2rem, 6vw, 4rem);
+            font-weight: 700;
+            background: linear-gradient(45deg, #ff6b6b, #feca57, #48dbfb);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 2rem;
+            animation: rainbow 3s ease infinite;
+        }
+
+        @keyframes rainbow {
+            0%, 100% { filter: hue-rotate(0deg); }
+            50% { filter: hue-rotate(180deg); }
+        }
+
+        /* Message */
+        .message {
+            font-size: clamp(1.2rem, 3vw, 2rem);
+            color: white;
+            line-height: 1.6;
+            max-width: 800px;
+            margin-bottom: 3rem;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.5s forwards;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Gift Box */
+        .gift-box {
+            width: 200px;
+            height: 200px;
+            margin: 2rem auto;
+            position: relative;
+            cursor: pointer;
+            animation: shake 3s infinite;
+        }
+
+        .gift-box:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes shake {
+            0%, 100% { transform: rotate(0deg); }
+            25% { transform: rotate(2deg); }
+            75% { transform: rotate(-2deg); }
+        }
+
+        .gift {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            border-radius: 15px;
+            position: relative;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .gift::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 20px;
+            height: 100px;
+            background: linear-gradient(45deg, #feca57, #ffd93d);
+            border-radius: 10px;
+        }
+
+        .gift::after {
+            content: '';
+            position: absolute;
+            left: -10px;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 100px;
+            height: 20px;
+            background: linear-gradient(45deg, #feca57, #ffd93d);
+            border-radius: 10px;
+        }
+
+        .gift-bow {
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 40px;
+            height: 40px;
+            background: #ffd93d;
+            border-radius: 50%;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+        }
+
+        /* Button */
+        .cta-button {
+            background: linear-gradient(45deg, #ff6b6b, #ee5a24);
+            color: white;
+            border: none;
+            padding: 18px 40px;
+            font-size: 1.3rem;
+            font-weight: 600;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 15px 35px rgba(255,107,107,0.4);
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-button:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 25px 50px rgba(255,107,107,0.6);
+        }
+
+        .cta-button:active {
+            transform: translateY(-2px);
+        }
+
+        /* Fireworks */
+        .firework {
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: white;
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+            
+            .gift-box {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        /* Surprise Message */
+        .surprise {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            background: linear-gradient(45deg, #ff9ff3, #f368e0);
+            color: white;
+            padding: 3rem 2rem;
+            border-radius: 20px;
+            font-size: 2rem;
+            font-weight: 700;
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5);
+            z-index: 1000;
+            opacity: 0;
+            transition: all 0.5s ease;
+        }
+
+        .surprise.show {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+
+        .surprise h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 1rem;
+        }
+    </style>
 </head>
 <body>
-    <!-- Background -->
-    <div class="bg-animation"></div>
+    <!-- Particles -->
+    <div class="particles" id="particles"></div>
     
-    <!-- Header -->
-    <header>
-        <h1 class="title">🌟 Five Senses</h1>
-        <p class="subtitle">Experience the world through your senses</p>
-    </header>
+    <!-- Surprise Popup -->
+    <div class="surprise" id="surprise">
+        <h1>🎉 SURPRISE! 🎉</h1>
+        <p>You are the BEST BESTIE ever! 🥳<br>
+        Love you to the MOON & BACK! 🌙💖</p>
+    </div>
 
-    <!-- Main Senses Grid -->
-    <main class="senses-grid">
-        <div class="sense-card" data-sense="touch">
-            <div class="sense-icon">✋</div>
-            <h2>Touch</h2>
-            <p>Feel the texture</p>
-            <button class="sense-btn">Experience</button>
-        </div>
+    <div class="container">
+        <h1 class="birthday-title" onclick="triggerFireworks()">Happy Birthday</h1>
+        <h2 class="bestie-name">[BESTIE'S NAME]</h2>
         
-        <div class="sense-card" data-sense="smell">
-            <div class="sense-icon">👃</div>
-            <h2>Smell</h2>
-            <p>Discover aromas</p>
-            <button class="sense-btn">Experience</button>
-        </div>
-        
-        <div class="sense-card" data-sense="taste">
-            <div class="sense-icon">👅</div>
-            <h2>Taste</h2>
-            <p>Savor the flavor</p>
-            <button class="sense-btn">Experience</button>
-        </div>
-        
-        <div class="sense-card" data-sense="hear">
-            <div class="sense-icon">👂</div>
-            <h2>Hear</h2>
-            <p>Listen closely</p>
-            <button class="sense-btn">Experience</button>
-        </div>
-        
-        <div class="sense-card" data-sense="sight">
-            <div class="sense-icon">👁️</div>
-            <h2>Sight</h2>
-            <p>See the beauty</p>
-            <button class="sense-btn">Experience</button>
-        </div>
-    </main>
+        <p class="message">
+            To my favorite human, adventure partner, 
+            <br>late-night talk buddy, and the best bestie ever! 🎈<br><br>
+            
+            May this year bring you endless joy, 
+            <br>success, and all your heart desires! 🌟
+        </p>
 
-    <!-- Audio Player -->
-    <audio id="senseAudio" preload="auto"></audio>
+        <div class="gift-box" onclick="openGift()">
+            <div class="gift">
+                <div class="gift-bow"></div>
+            </div>
+        </div>
 
-    <!-- Particles Canvas -->
-    <canvas id="particles"></canvas>
+        <button class="cta-button" onclick="triggerFireworks()">
+            🎊 Let's Party! 🎊
+        </button>
+    </div>
 
-    <script src="script.js"></script>
+    <script>
+        // Replace with your bestie's name
+        document.querySelector('.bestie-name').textContent = 'BESTIE\'S NAME';
+
+        // Floating Hearts Particles
+        function createParticle(x, y) {
+            const particle = document.createElement('div');
+            particle.className = 'firework';
+            particle.style.left = x + 'px';
+            particle.style.top = y + 'px';
+            particle.style.background = `hsl(${Math.random() * 360}, 100%, 60%)`;
+            document.getElementById('particles').appendChild(particle);
+
+            const vx = (Math.random() - 0.5) * 10;
+            const vy = (Math.random() - 0.5) * 10;
+            const size = Math.random() * 6 + 2;
+
+            let opacity = 1;
+            const animate = () => {
+                particle.style.transform = `translate(${vx}px, ${vy}px) scale(${size})`;
+                particle.style.opacity = opacity;
+                opacity -= 0.02;
+                if (opacity > 0) requestAnimationFrame(animate);
+                else particle.remove();
+            };
+            animate();
+        }
+
+        // Mouse trail
+        document.addEventListener('mousemove', (e) => {
+            if (Math.random() < 0.3) {
+                createParticle(e.clientX, e.clientY);
+            }
+        });
+
+        // Fireworks Effect
+        function triggerFireworks() {
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    createParticle(
+                        Math.random() * window.innerWidth,
+                        Math.random() * window.innerHeight
+                    );
+                }, i * 50);
+            }
+            
+            // Show surprise
+            setTimeout(() => {
+                document.getElementById('surprise').classList.add('show');
+            }, 1000);
+        }
+
+        // Gift Box Animation
+        function openGift() {
+            const gift = document.querySelector('.gift');
+            gift.style.transform = 'rotateY(360deg) scale(0.8)';
+            gift.style.transition = 'all 0.6s ease';
+            
+            setTimeout(() => {
+                triggerFireworks();
+                gift.innerHTML = '<div style="font-size: 3rem; padding-top: 50px;">🎁</div>';
+            }, 600);
+        }
+
+        // Auto fireworks on load
+        window.addEventListener('load', () => {
+            setTimeout(triggerFireworks, 2000);
+        });
+
+        // Continuous floating particles
+        setInterval(() => {
+            createParticle(
+                Math.random() * window.innerWidth,
+                0
+            );
+        }, 800);
+    </script>
 </body>
 </html>
