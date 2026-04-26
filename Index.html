@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday 🎉</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Particles Background -->
+        <div id="particles"></div>
+        
+        <!-- Main Content -->
+        <div class="birthday-card">
+            <div class="cake-container">
+                <div class="cake">
+                    <div class="layer layer-1"></div>
+                    <div class="layer layer-2"></div>
+                    <div class="layer layer-3"></div>
+                    <div class="candle">
+                        <div class="flame"></div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="message">
+                <h1 id="name">Dear [Name]</h1>
+                <h2>Happy Birthday! 🎂✨</h2>
+                <p class="subtext">Wishing you a fantastic year ahead!</p>
+            </div>
+            
+            <div class="action-buttons">
+                <button id="celebrateBtn" class="celebrate-btn">🎉 Celebrate! 🎉</button>
+                <button id="customizeBtn" class="customize-btn">✏️ Customize</button>
+            </div>
+        </div>
+        
+        <!-- Customization Modal -->
+        <div id="customizeModal" class="modal">
+            <div class="modal-content">
+                <span class="close">&times;</span>
+                <h3>🎨 Customize Birthday Message</h3>
+                <div class="form-group">
+                    <label>Name:</label>
+                    <input type="text" id="customName" placeholder="Enter name">
+                </div>
+                <div class="form-group">
+                    <label>Message:</label>
+                    <textarea id="customMessage" placeholder="Enter birthday message"></textarea>
+                </div>
+                <button id="saveBtn" class="save-btn">💾 Save Changes</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
