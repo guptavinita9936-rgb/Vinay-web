@@ -5,36 +5,38 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Birthday Surprise</title>
     <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-
-    <div id="music-container">
-        <button id="play-pause-btn"><i class="fas fa-music"></i></button>
-        <audio id="bg-music" loop>
-            <source src="music.mp3" type="audio/mpeg">
-        </audio>
-    </div>
-
-    <div id="wrapper">
-        <div id="loader" class="screen active">
-            <div class="spinner"></div>
-            <p>Dang tải...</p>
-            <p class="wait-text">Chờ đợi là hạnh phúc!</p>
+    
+    <div id="main-frame">
+        
+        <div id="music-container">
+            <button id="music-btn">🎵</button>
+            <audio id="bg-music" loop>
+                <source src="music.mp3" type="audio/mpeg">
+            </audio>
         </div>
 
-        <div id="matrix-screen" class="screen">
-            <div id="matrix-grid"></div>
-        </div>
-
-        <div id="celebration-screen" class="screen">
-            <div class="content-box">
-                <img src="cat-celebration.gif" id="main-cat" alt="Happy Birthday">
-                <h2 id="final-wish">HAPPY BIRTHDAY!</h2>
+        <div id="screens-wrapper">
+            
+            <div id="loading-screen" class="active">
+                <p class="loading-text">Dang tải...</p>
+                <p class="sub-text">Chờ đợi là hạnh phúc!</p>
             </div>
+
+            <div id="matrix-container">
+                </div>
+
+            <div id="celebration-scene">
+                <img src="birthday.gif" alt="Birthday Cat" class="cat-gif">
+                <h1 class="final-text">HAPPY BIRTHDAY!</h1>
+            </div>
+
         </div>
+
     </div>
 
     <script src="script.js"></script>
 </body>
 </html>
+
