@@ -318,11 +318,17 @@ addEventListener('pointerup', endDrag);
 // ---------------- personalized card ----------------
 const nameField = document.getElementById('nameField');
 const cardMsg = document.getElementById('cardMsg');
-const defaultMsg = "Whatever fights we've had, whatever distance comes between us — this thread says I've still got you. Always.";
+const defaultMsg = " t jab bhi zarurat ho, bhai ko yaad kar lena.call krna bulana mat mai aa ni paunga career pe focus kr rha😅😅
+Bas khush reh aur aise hi hasti rahe..😊
+Happy Raksha Bandhan, Dii ❤️
+— Tera Bhai vinay.";
 nameField.addEventListener('input', ()=>{
   const n = nameField.value.trim();
   cardMsg.textContent = n
-    ? `${n}, whatever fights we've had, whatever distance comes between us — this thread says I've still got you. Always.`
+    ? `${n}
+Bas khush reh aur aise hi hasti rahe..😊
+Happy Raksha Bandhan, Dii ❤️
+— Tera Bhai vinay.`
     : defaultMsg;
 });
 const flipCard = document.getElementById('flipCard');
